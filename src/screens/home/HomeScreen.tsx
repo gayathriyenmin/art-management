@@ -42,7 +42,7 @@ export const HomeScreen: React.FC = () => {
       {/* Featured Courses */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
             <SectionTitle
               badge="Our Classes"
               title="Featured Masterclasses"
@@ -74,7 +74,7 @@ export const HomeScreen: React.FC = () => {
       {/* Gallery Preview */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
             <SectionTitle
               badge="Exhibition Hall"
               title="Student Masterpieces"

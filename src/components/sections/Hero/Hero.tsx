@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1, scale: 1.08 }}
             exit={{ opacity: 0 }}
-            transition={{ 
+            transition={{
               opacity: { duration: 0.5, ease: 'easeInOut' },
               scale: { duration: 6, ease: 'linear' }
             }}
@@ -134,14 +134,14 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Manual Slider Navigation Arrows */}
-      <button 
+      <button
         onClick={handlePrev}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
       </button>
-      <button 
+      <button
         onClick={handleNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
         aria-label="Next slide"
@@ -155,9 +155,8 @@ export const Hero: React.FC = () => {
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === idx ? 'bg-[#C97C7C] w-6' : 'bg-white/30 hover:bg-white/55'
-            }`}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === idx ? 'bg-[#C97C7C] w-6' : 'bg-white/30 hover:bg-white/55'
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
