@@ -47,27 +47,27 @@ const getStatIcon = (id: string) => {
   switch (id) {
     case 'stat-1':
       return {
-        icon: <Users className="w-6 h-6 text-[#5FA8A0]" />,
-        bg: 'bg-[#5FA8A0]/10 border-[#5FA8A0]/20 group-hover:bg-[#5FA8A0]/25 group-hover:border-[#4F9188]/50'
+        icon: <Users className="w-6 h-6 text-[#C97C7C]" />,
+        bg: 'bg-[#C97C7C]/10 border-[#C97C7C]/20 group-hover:bg-[#C97C7C]/25 group-hover:border-[#B86C6C]/50'
       };
     case 'stat-2':
       return {
-        icon: <GraduationCap className="w-6 h-6 text-[#E8C07D]" />,
-        bg: 'bg-[#E8C07D]/10 border-[#E8C07D]/20 group-hover:bg-[#E8C07D]/25 group-hover:border-[#E8C07D]/50'
+        icon: <GraduationCap className="w-6 h-6 text-[#D9B26F]" />,
+        bg: 'bg-[#D9B26F]/10 border-[#D9B26F]/20 group-hover:bg-[#D9B26F]/25 group-hover:border-[#D9B26F]/50'
       };
     case 'stat-3':
       return {
-        icon: <Briefcase className="w-6 h-6 text-[#5FA8A0]" />,
-        bg: 'bg-[#5FA8A0]/10 border-[#5FA8A0]/20 group-hover:bg-[#5FA8A0]/25 group-hover:border-[#4F9188]/50'
+        icon: <Briefcase className="w-6 h-6 text-[#C97C7C]" />,
+        bg: 'bg-[#C97C7C]/10 border-[#C97C7C]/20 group-hover:bg-[#C97C7C]/25 group-hover:border-[#B86C6C]/50'
       };
     case 'stat-4':
       return {
-        icon: <Palette className="w-6 h-6 text-[#E8C07D]" />,
-        bg: 'bg-[#E8C07D]/10 border-[#E8C07D]/20 group-hover:bg-[#E8C07D]/25 group-hover:border-[#E8C07D]/50'
+        icon: <Palette className="w-6 h-6 text-[#D9B26F]" />,
+        bg: 'bg-[#D9B26F]/10 border-[#D9B26F]/20 group-hover:bg-[#D9B26F]/25 group-hover:border-[#D9B26F]/50'
       };
     default:
       return {
-        icon: <Users className="w-6 h-6 text-[#5FA8A0]" />,
+        icon: <Users className="w-6 h-6 text-[#C97C7C]" />,
         bg: 'bg-slate-50 border-slate-100'
       };
   }

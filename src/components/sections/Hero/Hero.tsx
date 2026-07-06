@@ -79,12 +79,12 @@ export const Hero: React.FC = () => {
       <motion.div
         animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
         transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-        className="absolute top-1/3 right-[15%] w-24 h-24 bg-gradient-to-br from-[#5FA8A0] to-transparent rounded-2xl opacity-15 pointer-events-none hidden md:block blur-sm z-10"
+        className="absolute top-1/3 right-[15%] w-24 h-24 bg-gradient-to-br from-[#C97C7C] to-transparent rounded-2xl opacity-15 pointer-events-none hidden md:block blur-sm z-10"
       />
       <motion.div
         animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
         transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-        className="absolute bottom-1/3 left-[15%] w-32 h-32 bg-gradient-to-tr from-[#E8C07D] to-transparent rounded-full opacity-10 pointer-events-none hidden md:block blur-sm z-10"
+        className="absolute bottom-1/3 left-[15%] w-32 h-32 bg-gradient-to-tr from-[#D9B26F] to-transparent rounded-full opacity-10 pointer-events-none hidden md:block blur-sm z-10"
       />
 
       <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center gap-8 z-10">
@@ -95,14 +95,14 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs font-semibold tracking-wider text-slate-300 uppercase shadow-inner"
         >
-          <Palette size={14} className="text-[#5FA8A0]" />
+          <Palette size={14} className="text-[#C97C7C]" />
           <span>Unlock Your Artistic Potential</span>
         </motion.div>
 
         {/* Heading */}
         <h1 className="text-4xl md:text-7xl font-bold font-heading tracking-tight leading-[1.1] max-w-4xl text-white">
           Where Classical Skill Meets{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5FA8A0] via-teal-300 to-[#E8C07D] drop-shadow-sm">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C97C7C] via-rose-200 to-[#D9B26F] drop-shadow-sm">
             Digital Vision
           </span>
         </h1>
@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
         {/* Subtitle / Typing */}
         <p className="text-base md:text-xl text-slate-300 max-w-2xl min-h-[30px] font-light leading-relaxed">
           {typedText}
-          <span className="animate-ping text-[#5FA8A0]">|</span>
+          <span className="animate-ping text-[#C97C7C]">|</span>
         </p>
 
         {/* CTAs */}
@@ -156,7 +156,7 @@ export const Hero: React.FC = () => {
             key={idx}
             onClick={() => setCurrentSlide(idx)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === idx ? 'bg-[#5FA8A0] w-6' : 'bg-white/30 hover:bg-white/55'
+              currentSlide === idx ? 'bg-[#C97C7C] w-6' : 'bg-white/30 hover:bg-white/55'
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
@@ -177,7 +177,7 @@ export const Hero: React.FC = () => {
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
           className="w-5 h-9 rounded-full border-2 border-slate-400/50 flex justify-center pt-1.5"
         >
-          <div className="w-1.5 h-1.5 bg-[#5FA8A0] rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#C97C7C] rounded-full" />
         </motion.div>
       </motion.div>
     </section>
