@@ -1,14 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Palette } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Palette, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../../common/Button';
 import { ROUTES } from '../../../constants';
 
+const SLIDE_IMAGES = [
+  'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?q=80&w=1600&auto=format&fit=crop'
+];
+
 export const Hero: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [typedText, setTypedText] = useState('');
   const textToType = 'Nurturing Masterpiece Artists.';
 
+  // Preload all slider images on component mount
+  useEffect(() => {
+    SLIDE_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // Slide rotation effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Text typing effect
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -21,22 +45,46 @@ export const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev - 1 + SLIDE_IMAGES.length) % SLIDE_IMAGES.length);
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary to-purple-950 text-white pt-24 px-6">
-      {/* Dynamic blurred blobs */}
-      <div className="absolute top-1/4 left-[10%] w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[10%] w-[500px] h-[500px] bg-highlight/10 rounded-full blur-3xl animate-float pointer-events-none" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 text-white pt-24 px-6">
+      {/* Background Image Slider using Framer Motion AnimatePresence */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.08 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 0.5, ease: 'easeInOut' },
+              scale: { duration: 6, ease: 'linear' }
+            }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${SLIDE_IMAGES[currentSlide]})` }}
+          />
+        </AnimatePresence>
+        {/* Dark overlay to maintain high text visibility */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+      </div>
 
       {/* Floating abstract decorative shapes */}
       <motion.div
         animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
         transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-        className="absolute top-1/3 right-[20%] w-24 h-24 bg-gradient-to-br from-highlight to-transparent rounded-2xl opacity-20 pointer-events-none hidden md:block blur-sm"
+        className="absolute top-1/3 right-[15%] w-24 h-24 bg-gradient-to-br from-[#5FA8A0] to-transparent rounded-2xl opacity-15 pointer-events-none hidden md:block blur-sm z-10"
       />
       <motion.div
         animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
         transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-        className="absolute bottom-1/3 left-[20%] w-32 h-32 bg-gradient-to-tr from-primary to-transparent rounded-full opacity-15 pointer-events-none hidden md:block blur-sm"
+        className="absolute bottom-1/3 left-[15%] w-32 h-32 bg-gradient-to-tr from-[#E8C07D] to-transparent rounded-full opacity-10 pointer-events-none hidden md:block blur-sm z-10"
       />
 
       <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center gap-8 z-10">
@@ -47,14 +95,14 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs font-semibold tracking-wider text-slate-300 uppercase shadow-inner"
         >
-          <Palette size={14} className="text-highlight" />
+          <Palette size={14} className="text-[#5FA8A0]" />
           <span>Unlock Your Artistic Potential</span>
         </motion.div>
 
         {/* Heading */}
         <h1 className="text-4xl md:text-7xl font-bold font-heading tracking-tight leading-[1.1] max-w-4xl text-white">
           Where Classical Skill Meets{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-highlight drop-shadow-sm">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5FA8A0] via-teal-300 to-[#E8C07D] drop-shadow-sm">
             Digital Vision
           </span>
         </h1>
@@ -62,7 +110,7 @@ export const Hero: React.FC = () => {
         {/* Subtitle / Typing */}
         <p className="text-base md:text-xl text-slate-300 max-w-2xl min-h-[30px] font-light leading-relaxed">
           {typedText}
-          <span className="animate-ping text-highlight">|</span>
+          <span className="animate-ping text-[#5FA8A0]">|</span>
         </p>
 
         {/* CTAs */}
@@ -83,25 +131,55 @@ export const Hero: React.FC = () => {
             </Button>
           </Link>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer text-slate-400 hover:text-white transition-colors"
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        >
-          <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-            className="w-5 h-9 rounded-full border-2 border-slate-400/50 flex justify-center pt-1.5"
-          >
-            <div className="w-1.5 h-1.5 bg-highlight rounded-full" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Manual Slider Navigation Arrows */}
+      <button 
+        onClick={handlePrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button 
+        onClick={handleNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* Slider Indicator Dots */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {SLIDE_IMAGES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === idx ? 'bg-[#5FA8A0] w-6' : 'bg-white/30 hover:bg-white/55'
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer text-slate-400 hover:text-white transition-colors z-20"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+      >
+        <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+          className="w-5 h-9 rounded-full border-2 border-slate-400/50 flex justify-center pt-1.5"
+        >
+          <div className="w-1.5 h-1.5 bg-[#5FA8A0] rounded-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
