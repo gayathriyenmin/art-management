@@ -1,11 +1,12 @@
 @theme {
-  --color-primary: #5B21B6;
-  --color-secondary: #0F172A;
-  --color-accent: #F59E0B;
-  --color-highlight: #06B6D4;
-  --color-bg-base: #F8FAFC;
+  --color-primary: #5FA8A0;
+  --color-primary-hover: #4F9188;
+  --color-secondary: #1E293B;
+  --color-accent: #E8C07D;
+  --color-highlight: #5FA8A0;
+  --color-bg-base: #F9FCFC;
   --color-surface: #FFFFFF;
-  --color-text-main: #0F172A;
+  --color-text-main: #1E293B;
   --color-text-muted: #64748B;
   --color-border-color: #E2E8F0;
   --color-success: #16A34A;
