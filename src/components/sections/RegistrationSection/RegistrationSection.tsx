@@ -49,7 +49,7 @@ export const RegistrationSection: React.FC = () => {
   };
 
   return (
-    <section id="registration" className="py-20 md:py-28 bg-bg-base relative text-left">
+    <section id="registration" className="py-[60px] md:py-[80px] lg:py-[150px] bg-bg-base relative text-left">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
             <h2 className="text-3xl font-heading font-bold text-secondary mb-4">Student Registration</h2>

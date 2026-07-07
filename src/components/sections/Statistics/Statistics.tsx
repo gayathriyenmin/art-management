@@ -76,7 +76,7 @@ const getStatIcon = (id: string) => {
 export const Statistics: React.FC = () => {
   return (
     <section
-      className="py-20 relative overflow-hidden bg-cover bg-center border-y border-slate-900"
+      className="py-[60px] md:py-[80px] lg:py-[150px] relative overflow-hidden bg-cover bg-center border-y border-slate-900"
       style={{ backgroundImage: `url(${bgStatistics})` }}
     >
       {/* Black semi-transparent overlay */}

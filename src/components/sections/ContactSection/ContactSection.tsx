@@ -33,7 +33,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white relative text-left border-t border-border-color">
+    <section id="contact" className="py-[60px] md:py-[80px] lg:py-[150px] bg-white relative text-left border-t border-border-color">
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left Column: Info Cards & Map */}
         <div className="flex flex-col gap-10">
