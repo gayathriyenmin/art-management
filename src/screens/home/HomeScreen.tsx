@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, User } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import {
   Hero,
@@ -10,18 +9,15 @@ import {
   Newsletter
 } from '../../components/sections';
 import { CourseCard } from '../../components/cards/CourseCard';
-import { InstructorCard } from '../../components/cards/InstructorCard';
 import { TestimonialCard } from '../../components/cards/TestimonialCard';
 import { GalleryCard } from '../../components/cards/GalleryCard';
 import { SectionTitle } from '../../components/common/SectionTitle';
 import { Button } from '../../components/common/Button';
-import { COURSES, INSTRUCTORS, GALLERY_ITEMS, TESTIMONIALS, WORKSHOPS, ROUTES } from '../../constants';
+import { COURSES, GALLERY_ITEMS, TESTIMONIALS, ROUTES } from '../../constants';
 
 export const HomeScreen: React.FC = () => {
   // Take first 3 courses for preview
   const featuredCourses = COURSES.slice(0, 3);
-  // Take first 3 instructors
-  const featuredInstructors = INSTRUCTORS.slice(0, 3);
   // Take first 3 gallery items
   const galleryPreview = GALLERY_ITEMS.slice(0, 3);
 
