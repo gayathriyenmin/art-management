@@ -35,33 +35,27 @@ export const Navbar: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <NavLink
+              <a
                 key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-all ${
-                    scrolled
-                      ? isActive
-                        ? 'text-primary font-semibold'
-                        : 'text-text-muted hover:text-primary'
-                      : isActive
-                        ? 'text-white font-semibold border-b-2 border-white/60 pb-1'
-                        : 'text-white/70 hover:text-white'
-                  }`
-                }
+                href={link.path}
+                className={`text-sm font-medium transition-all ${
+                  scrolled
+                    ? 'text-text-muted hover:text-primary'
+                    : 'text-white/70 hover:text-white'
+                }`}
               >
                 {link.label}
-              </NavLink>
+              </a>
             ))}
           </nav>
 
           {/* Action CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link to={ROUTES.REGISTRATION}>
+            <a href={ROUTES.REGISTRATION}>
               <Button size="sm" variant="primary">
                 Register Now
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

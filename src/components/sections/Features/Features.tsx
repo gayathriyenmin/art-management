@@ -6,7 +6,7 @@ import { ACHIEVEMENTS } from '../../../constants';
 
 export const Features: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-bg-base via-primary/10 to-accent/20 relative overflow-hidden">
+    <section className="py-20 md:py-28 mb-12 md:mb-28 bg-gradient-to-br from-bg-base via-primary/10 to-accent/20 relative overflow-hidden">
       {/* Dynamic Floating Background Shine/Glow Blobs */}
       <motion.div
         initial={{ x: 0, y: 0, scale: 1 }}

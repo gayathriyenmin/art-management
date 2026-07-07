@@ -1,15 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Header } from '../../components/layout/Header';
-import { GalleryCard } from '../../components/cards/GalleryCard';
-import { Modal } from '../../components/common/Modal';
-import { EmptyState } from '../../components/common/EmptyState';
-import { GALLERY_ITEMS } from '../../constants';
-import type { GalleryItem } from '../../interfaces';
+import { GalleryCard } from '../../cards/GalleryCard';
+import { Modal } from '../../common/Modal';
+import { EmptyState } from '../../common/EmptyState';
+import { SectionTitle } from '../../common/SectionTitle';
+import { GALLERY_ITEMS } from '../../../constants';
+import type { GalleryItem } from '../../../interfaces';
 
 const CATEGORIES = ['All', 'Oil Painting', 'Digital Art', 'Sculpture', 'Watercolor'];
 
-export const GalleryScreen: React.FC = () => {
+export const GallerySection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeLightboxItem, setActiveLightboxItem] = useState<GalleryItem | null>(null);
 
@@ -20,22 +19,16 @@ export const GalleryScreen: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Student & Alumni Gallery |   Academy</title>
-        <meta name="description" content="Explore fine art masterpieces, digital concept sketches, and clay sculptures curated from our student body." />
-      </Helmet>
-
-      {/* Header Banner */}
-      <Header
-        title="Student Gallery"
-        subtitle="Step into our digital exhibition hall. A curated space celebrating student creativity, technical mastery, and artistic growth."
-      />
-
-      {/* Gallery Section */}
-      <section className="py-16 md:py-24 bg-white relative">
+      <section id="gallery" className="py-16 md:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <SectionTitle
+            badge="Exhibition Hall"
+            title="Student Gallery"
+            subtitle="Step into our digital exhibition hall. A curated space celebrating student creativity, technical mastery, and artistic growth."
+          />
+
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2.5 mb-16 border-b border-border-color pb-8">
+          <div className="flex flex-wrap justify-center gap-2.5 mb-16 border-b border-border-color pb-8 mt-8">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -103,4 +96,4 @@ export const GalleryScreen: React.FC = () => {
   );
 };
 
-export default GalleryScreen;
+export default GallerySection;
