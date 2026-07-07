@@ -42,7 +42,7 @@ export const HomeScreen: React.FC = () => {
       {/* Featured Courses */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-5 gap-6">
             <SectionTitle
               badge="Our Classes"
               title="Featured Masterclasses"
@@ -108,66 +108,6 @@ export const HomeScreen: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((test) => (
               <TestimonialCard key={test.id} testimonial={test} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Workshops */}
-      <section className="py-20 md:py-28 bg-white relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <SectionTitle
-            badge="Events & Seminars"
-            title="Upcoming Workshops"
-            subtitle="Join our live events, webinars, and masterclass critique sessions hosted by leading art directors."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {WORKSHOPS.map((ws) => (
-              <div
-                key={ws.id}
-                className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-border-color/60 text-left flex flex-col gap-4 hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300 relative group"
-              >
-                <div className="flex justify-between items-start">
-                  <span className="px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-                    {ws.tag}
-                  </span>
-                  <span className="text-sm font-bold text-secondary">{ws.price}</span>
-                </div>
-                <h3 className="font-heading font-bold text-lg md:text-xl text-secondary group-hover:text-primary transition-colors">
-                  {ws.title}
-                </h3>
-                <div className="flex flex-col gap-1.5 text-xs text-text-muted">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={14} />
-                    {ws.date} ({ws.time})
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <User size={14} />
-                    Host: {ws.instructor}
-                  </span>
-                </div>
-                <div className="mt-4 flex items-center justify-between border-t border-border-color pt-4">
-                  <Link to={ROUTES.REGISTRATION} className="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
-                    Register Seat <ArrowRightIcon />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Instructors */}
-      <section className="py-20 md:py-28 bg-bg-base relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <SectionTitle
-            badge="Studio Masters"
-            title="Our Instructors"
-            subtitle="Learn directly from professional artists, sculptors, and entertainment concept directors active in the industry."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {featuredInstructors.map((inst) => (
-              <InstructorCard key={inst.id} instructor={inst} />
             ))}
           </div>
         </div>

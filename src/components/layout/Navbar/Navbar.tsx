@@ -25,8 +25,10 @@ export const Navbar: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-highlight flex items-center justify-center text-white shadow-md shadow-primary/20 group-hover:scale-105 transition-all">
               <Palette size={20} />
             </div>
-            <span className="font-heading font-extrabold text-xl tracking-tight text-secondary group-hover:text-primary transition-all">
-              <span className="text-primary font-light">ACADEMY</span>
+            <span className={`font-heading font-extrabold text-xl tracking-tight transition-all ${
+              scrolled ? 'text-secondary group-hover:text-primary' : 'text-white group-hover:text-white/80'
+            }`}>
+              <span className={scrolled ? 'text-primary font-light' : 'text-white font-light'}>ACADEMY</span>
             </span>
           </Link>
 
@@ -37,8 +39,14 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-all hover:text-primary ${
-                    isActive ? 'text-primary font-semibold' : 'text-text-muted'
+                  `text-sm font-medium transition-all ${
+                    scrolled
+                      ? isActive
+                        ? 'text-primary font-semibold'
+                        : 'text-text-muted hover:text-primary'
+                      : isActive
+                        ? 'text-white font-semibold border-b-2 border-white/60 pb-1'
+                        : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -51,7 +59,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center gap-4">
             <Link to={ROUTES.REGISTRATION}>
               <Button size="sm" variant="primary">
-                Enroll Now
+                Register Now
               </Button>
             </Link>
           </div>
@@ -59,7 +67,9 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-2 text-secondary hover:text-primary transition-all cursor-pointer"
+            className={`lg:hidden p-2 transition-all cursor-pointer ${
+              scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-white/85'
+            }`}
           >
             <Menu size={24} />
           </button>
