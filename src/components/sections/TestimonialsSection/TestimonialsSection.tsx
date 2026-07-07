@@ -5,7 +5,7 @@ import { TESTIMONIALS } from '../../../constants';
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white relative">
+    <section id="testimonials" className="py-[60px] md:py-[80px] lg:py-[150px] bg-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
           badge="Reviews"

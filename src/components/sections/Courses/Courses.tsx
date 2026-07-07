@@ -38,7 +38,7 @@ export const Courses: React.FC = () => {
   }, [courses, debouncedSearchQuery, selectedCategory, selectedLevel]);
 
   return (
-    <section id="courses" className="py-16 md:py-24 bg-white relative">
+    <section id="courses" className="pb-[60px] md:pb-[80px] lg:pb-[150px] bg-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
           badge="Our Classes"

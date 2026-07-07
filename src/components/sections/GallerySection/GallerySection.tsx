@@ -19,7 +19,7 @@ export const GallerySection: React.FC = () => {
 
   return (
     <>
-      <section id="gallery" className="py-16 md:py-24 bg-white relative">
+      <section id="gallery" className="pb-[60px] md:pb-[80px] lg:pb-[150px] bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <SectionTitle
             badge="Exhibition Hall"

@@ -7,7 +7,7 @@ import { ROUTES } from '../../../constants';
 
 export const CTA: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section className=" bg-white relative overflow-hidden">
       {/* Decorative gradient blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 

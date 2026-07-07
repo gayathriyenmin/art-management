@@ -4,7 +4,7 @@ export const AboutSection: React.FC = () => {
   return (
     <div id="about">
       {/* Mission / Values Statement */}
-      <section className="py-20 md:py-28 bg-white text-left">
+      <section className="py-[60px] md:py-[80px] lg:py-[150px] bg-white text-left">
         <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
