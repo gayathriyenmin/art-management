@@ -52,26 +52,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             {/* Links */}
             <nav className="flex flex-col gap-5 mb-8">
               {NAV_LINKS.map((link) => (
-                <NavLink
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   onClick={onClose}
-                  className={({ isActive }) =>
-                    `text-base font-semibold py-1.5 transition-all hover:text-primary ${
-                      isActive ? 'text-primary pl-2 border-l-2 border-primary' : 'text-text-muted'
-                    }`
-                  }
+                  className="text-base font-semibold py-1.5 transition-all hover:text-primary text-text-muted"
                 >
                   {link.label}
-                </NavLink>
+                </a>
               ))}
             </nav>
 
             {/* CTA */}
             <div className="mt-auto flex flex-col gap-4">
-              <Link to={ROUTES.REGISTRATION} onClick={onClose}>
+              <a href={ROUTES.REGISTRATION} onClick={onClose}>
                 <Button fullWidth>Enroll Now</Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
