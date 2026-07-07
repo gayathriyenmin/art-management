@@ -3,32 +3,50 @@ import React from 'react';
 export const AboutSection: React.FC = () => {
   return (
     <div id="about">
-      {/* Mission / Values Statement */}
-      <section className="py-[60px] md:py-[80px] lg:py-[150px] bg-white text-left">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
-              Our Creed
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary mt-4 mb-6 leading-tight">
-              Honoring Tradition. Exploring Innovation.
-            </h2>
-            <p className="text-sm text-text-muted leading-relaxed mb-4">
-              At   Academy, we believe that high-quality artistic training is built upon foundations established over centuries. We combine strict, classical anatomy and color-theory lessons with modern digital brushwork and 3D concept designs.
-            </p>
-            <p className="text-sm text-text-muted leading-relaxed">
-              Whether you are preparing a gallery exhibition or building an industry-standard animation portfolio, our masters work individually with you to build your unique voice.
-            </p>
-          </div>
-          <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?q=80&w=600&auto=format&fit=crop"
-              alt="Art Studio"
-              className="rounded-3xl shadow-xl w-full aspect-4/3 object-cover"
+      <section className="py-[60px] md:py-[80px] lg:py-[150px] bg-white text-left overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          {/* Left Column: 4 Staggered Images */}
+          <div className="flex gap-3 sm:gap-4 items-center justify-center h-[400px] sm:h-[500px] md:h-[600px] px-2 sm:px-4">
+            <img 
+              src="https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?q=80&w=400&auto=format&fit=crop" 
+              alt="Art sketch portrait" 
+              className="w-1/4 h-[75%] object-cover rounded-xl shadow-lg -translate-y-8" 
             />
-            {/* Ambient blur blob */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-highlight/10 rounded-3xl -z-10 blur-xl scale-105" />
+            <img 
+              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=400&auto=format&fit=crop" 
+              alt="Still life painting" 
+              className="w-1/4 h-[85%] object-cover rounded-xl shadow-lg translate-y-6" 
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=400&auto=format&fit=crop" 
+              alt="Floral art" 
+              className="w-1/4 h-[90%] object-cover rounded-xl shadow-lg -translate-y-4" 
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=400&auto=format&fit=crop" 
+              alt="Classical portrait painting" 
+              className="w-1/4 h-[80%] object-cover rounded-xl shadow-lg translate-y-12" 
+            />
           </div>
+
+          {/* Right Column: Text and Button */}
+          <div className="max-w-lg mx-auto lg:mx-0 w-full">
+            <h3 className="text-lg md:text-xl text-slate-800 mb-2 font-medium">Welcome To</h3>
+            <h2 className="text-4xl md:text-5xl font-heading text-primary mb-8 font-normal tracking-wide">
+              Ovya Art Academy
+            </h2>
+            <p className="text-base text-slate-700 leading-relaxed mb-6">
+              Ovya Art Academy is a holistic institution that aims to develop skills among students in the arts of drawing, painting, mixed media, and sculpture.
+            </p>
+            <p className="text-base text-slate-700 leading-relaxed mb-10">
+              Lessons are delivered through a number of practical projects that encourage pupils to use their creative imagination and observe the finer details of their everyday environment.
+            </p>
+            <button className="bg-primary hover:bg-[#b56565] text-white px-8 py-3.5 rounded text-sm font-semibold tracking-wider transition-colors shadow-md hover:shadow-lg">
+              KNOW MORE
+            </button>
+          </div>
+          
         </div>
       </section>
     </div>
