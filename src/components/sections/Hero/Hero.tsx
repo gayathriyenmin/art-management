@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Palette, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Palette } from 'lucide-react';
 import { Button } from '../../common/Button';
 import { ROUTES } from '../../../constants';
 
@@ -133,52 +133,35 @@ export const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Manual Slider Navigation Arrows */}
+      {/* Artistic Slider Navigation Controls - Calligraphic Paintbrush Strokes */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
+        className="absolute left-8 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center text-white/70 hover:text-primary transition-all duration-300 hover:scale-115 active:scale-95 z-20 hidden md:flex cursor-pointer"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={24} />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 drop-shadow-md">
+          {/* Main calligraphic flick */}
+          <path d="M20 12 C14 11.2 8 10 4 12" strokeWidth="2.2" />
+          {/* Upper brush head */}
+          <path d="M4 12 C6.8 9.8 8.5 7 9.5 4" strokeWidth="1.5" />
+          {/* Lower brush head */}
+          <path d="M4 12 C6.8 14.2 8.5 17 9.5 20" strokeWidth="1.5" />
+        </svg>
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 border border-white/10 hover:border-white/25 transition-all text-white/70 hover:text-white z-20 hidden md:block"
+        className="absolute right-8 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center text-white/70 hover:text-primary transition-all duration-300 hover:scale-115 active:scale-95 z-20 hidden md:flex cursor-pointer"
         aria-label="Next slide"
       >
-        <ChevronRight size={24} />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 drop-shadow-md">
+          {/* Main calligraphic flick */}
+          <path d="M4 12 C10 11.2 16 10 20 12" strokeWidth="2.2" />
+          {/* Upper brush head */}
+          <path d="M20 12 C17.2 9.8 15.5 7 14.5 4" strokeWidth="1.5" />
+          {/* Lower brush head */}
+          <path d="M20 12 C17.2 14.2 15.5 17 14.5 20" strokeWidth="1.5" />
+        </svg>
       </button>
-
-      {/* Slider Indicator Dots */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-        {SLIDE_IMAGES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentSlide(idx)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === idx ? 'bg-[#C97C7C] w-6' : 'bg-white/30 hover:bg-white/55'
-              }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer text-slate-400 hover:text-white transition-colors z-20"
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-      >
-        <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-          className="w-5 h-9 rounded-full border-2 border-slate-400/50 flex justify-center pt-1.5"
-        >
-          <div className="w-1.5 h-1.5 bg-[#C97C7C] rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

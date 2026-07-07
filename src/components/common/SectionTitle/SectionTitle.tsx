@@ -29,9 +29,8 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       whileInView="visible"
       viewport={{ once: true, margin: '-100px' }}
       variants={fadeInUp(0, 0.6)}
-      className={`flex flex-col gap-3 mb-12 md:mb-16 ${
-        align === 'center' ? 'max-w-3xl mx-auto' : 'w-full'
-      } ${alignment[align]} ${className}`}
+      className={`flex flex-col gap-3 mb-0  ${align === 'center' ? 'max-w-3xl mx-auto' : 'w-full'
+        } ${alignment[align]} ${className}`}
     >
       {badge && (
         <span className="px-4 py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 rounded-full border border-primary/20">
